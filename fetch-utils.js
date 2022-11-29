@@ -30,14 +30,12 @@ export async function signOutUser() {
 /* Data functions */
 
 export async function createListItem(item, quantity) {
-    const response = await client
-        .from('shopping-list')
-        .insert({
-            item: item,
-            quantity: quantity,
-            cross_out: false,
-            user_id: client.auth.user().id,
-        });
+    const response = await client.from('shopping-list').insert({
+        item: item,
+        quantity: quantity,
+        cross_out: false,
+        user_id: client.auth.user().id,
+    });
 
     if (response.error) {
         console.error(response.error.message);
@@ -64,6 +62,16 @@ export async function editListItem(item) {
         .from('shopping-list')
         .update({ cross_out: !item.cross_out })
         .match({ id: item.id });
+
+    if (response.error) {
+        console.error(response.error.message);
+    } else {
+        return response.data;
+    }
+}
+
+export async function deleteList() {
+    const response = await client.from('shopping-list').delete().match({ user_id: getUser().id });
 
     if (response.error) {
         console.error(response.error.message);

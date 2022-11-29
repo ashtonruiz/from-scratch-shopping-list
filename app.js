@@ -2,7 +2,7 @@
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
 import { renderListItem } from './render-utils.js';
-import { getListItems, createListItem, editListItem } from './fetch-utils.js';
+import { getListItems, createListItem, editListItem, deleteList } from './fetch-utils.js';
 
 /* Get DOM Elements */
 const form = document.querySelector('.create-form');
@@ -46,3 +46,8 @@ async function displayList() {
         }
     }
 }
+
+deleteBtn.addEventListener('click', async () => {
+    await deleteList();
+    await displayList();
+});
