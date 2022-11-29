@@ -13,6 +13,10 @@ const error = document.querySelector('#error');
 /* State */
 
 /* Events */
+window.addEventListener('load', async () => {
+    await displayList();
+});
+
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -28,6 +32,7 @@ form.addEventListener('submit', async (e) => {
         error.textContent = 'Something went wrong while adding your item';
     }
 });
+
 /* Display Functions */
 async function displayList() {
     listEl.textContent = '';
