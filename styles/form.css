@@ -8,6 +8,8 @@ form:not(.inline) {
     font-family: 'Sue Ellen Francisco', cursive;
     display: grid;
     gap: 20px;
+    color: rgb(97, 153, 216);
+    border-color: rgb(223, 134, 17);
 }
 
 label {
@@ -80,6 +82,11 @@ form button:disabled {
 
 body {
     background-color: rgb(246, 235, 253);
+}
+
+a {
+    color: rgb(223, 134, 17);
+    font-size: 25px;
 }
 
 * {
