@@ -29,8 +29,8 @@ export async function signOutUser() {
 
 /* Data functions */
 
-export async function createListItem(item) {
-    const response = await client.from('shopping-list').insert({ item });
+export async function createListItem(item, quantity) {
+    const response = await client.from('shopping-list').insert({ item, quantity });
 
     if (response.error) {
         console.error(response.error.message);
