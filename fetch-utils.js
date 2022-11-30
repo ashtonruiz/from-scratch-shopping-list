@@ -49,7 +49,6 @@ export async function getListItems() {
         .from('shopping-list')
         .select()
         .match({ user_id: client.auth.user().id });
-    console.log('response', response);
     if (response.error) {
         console.error(response.error.message);
     } else {
