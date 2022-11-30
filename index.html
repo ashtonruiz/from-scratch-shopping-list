@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- metadata -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <!-- metadata -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- title and favicon -->
+        <title>Shopping List</title>
+        <link rel="icon" type="image/x-icon" href="/assets/basket.png" />
 
-    <!-- title and favicon -->
-    <title>Supabase Web App</title>
-    <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
+        <!-- js -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
+        ></script>
+        <script type="module" src="app.js"></script>
 
-    <!-- js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"></script>
-    <script type="module" src="app.js"></script>
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+        <!-- css -->
+        <link rel="stylesheet" href="/styles/reset.css" />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="styles.css" <!-- add link for page specific css -- />
+    </head>
 
+    <body>
+        <header class="page-header">
+            <img class="logo" src="/assets/milk.png" alt="logo" />
+            <p class="title">Shopping List</p>
+            <img class="logo2" src="/assets/soda.png" alt="logo" />
+            <nav>
+                <a id="home-btn" href="/">Home</a>
+                <a id="sign-out-link" href="auth">Sign Out</a>
+            </nav>
+        </header>
 
-    <!-- css -->
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/global.css" />
-    <!-- add link for page specific css -->
-
-</head>
-
-<body>
-    <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png" alt="logo">
-        <p class="title">Supabase Web App</p>
-        <nav>
-            <a href="/">Home</a>
-            <a id="sign-out-link" href="auth">Sign Out</a>
-        </nav>
-    </header>
-
-    <main>
-
-    </main>
-
-</body>
-
+        <main>
+            <section class="directions">
+                Add items to your list below. Click an item to mark it off your list!
+            </section>
+            <section>
+                <form class="create-form">
+                    <label id="item-form">
+                        Item:
+                        <input name="item" />
+                    </label>
+                    <label id="quantity-form">
+                        Quantity:
+                        <input type="number" name="quantity" min="1" />
+                    </label>
+                    <button type="submit" id="add-button">Add to list</button>
+                </form>
+                <p id="error"></p>
+                <ul class="list"></ul>
+                <section class="delete-btn">
+                    <button type="button" id="delete-button">Delete List</button>
+                </section>
+                <section class="pics">
+                    <img class="snacks" src="/assets/snacks.png" />
+                    <img class="snacks2" src="/assets/honey.png" />
+                    <img class="snacks3" src="/assets/food.png" />
+                </section>
+            </section>
+        </main>
+    </body>
 </html>
